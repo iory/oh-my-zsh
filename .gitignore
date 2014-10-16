@@ -2,7 +2,10 @@ locals.zsh
 log/.zsh_history
 projects.zsh
 *.swp
-*.pyc
-.DS_Store
+custom
+!custom/plugins
+!custom/example.zsh
 !custom/example.zshcache
 cache/
+*.pyc
+.DS_Store
