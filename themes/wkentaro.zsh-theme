@@ -23,14 +23,14 @@ theme_precmd () {
 
 setopt prompt_subst
 
-PROMPT='%(!.%{$fg[red]%}.%{$fg[green]%}%n@)%m %{$fg_bold[blue]%}%c %{$fg_bold[magenta]%}${vcs_info_msg_0_} %{$fg[cyan]%}%_$(prompt_char)%{$reset_color%} '
+PROMPT='%(!.%{$fg[red]%}.%{$fg[green]%}%n@)%m:%{$fg_bold[blue]%}%c%{$fg_bold[magenta]%}${vcs_info_msg_0_}%{$fg[cyan]%}%_$(prompt_char)%{$reset_color%} '
 function zle-line-init zle-keymap-select {
   case $KEYMAP in
     vicmd)
-    PROMPT='%(!.%{$fg[red]%}.%{$fg[green]%}%n@)%m %{$fg_bold[blue]%}%c %{$fg_bold[magenta]%}${vcs_info_msg_0_} %{$fg[red]%}%_$(prompt_char)%{$reset_color%} '
+    PROMPT='%(!.%{$fg[red]%}.%{$fg[green]%}%n@)%m:%{$fg_bold[blue]%}%c%{$fg_bold[magenta]%}${vcs_info_msg_0_}%{$fg[red]%}%_$(prompt_char)%{$reset_color%} '
     ;;
     main|viins)
-    PROMPT='%(!.%{$fg[red]%}.%{$fg[green]%}%n@)%m %{$fg_bold[blue]%}%c %{$fg_bold[magenta]%}${vcs_info_msg_0_} %{$fg[cyan]%}%_$(prompt_char)%{$reset_color%} '
+    PROMPT='%(!.%{$fg[red]%}.%{$fg[green]%}%n@)%m:%{$fg_bold[blue]%}%c%{$fg_bold[magenta]%}${vcs_info_msg_0_}%{$fg[cyan]%}%_$(prompt_char)%{$reset_color%} '
     ;;
   esac
   zle reset-prompt
