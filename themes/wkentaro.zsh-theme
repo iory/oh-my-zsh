@@ -1,6 +1,6 @@
-function prompt_char {
-    if [ $UID -eq 0 ]; then echo "#"; else echo $; fi
-}
+# function prompt_char {
+#     if [ $UID -eq 0 ]; then echo "#"; else echo $; fi
+# }
 
 autoload -U colors && colors
 
@@ -23,20 +23,21 @@ theme_precmd () {
 
 setopt prompt_subst
 
-PROMPT='%(!.%{$fg[red]%}.%{$fg[green]%}%n@)%m:%{$fg_bold[blue]%}%c%{$fg_bold[magenta]%}${vcs_info_msg_0_}%{$fg[cyan]%}%_$(prompt_char)%{$reset_color%} '
-function zle-line-init zle-keymap-select {
-  case $KEYMAP in
-    vicmd)
-    PROMPT='%(!.%{$fg[red]%}.%{$fg[green]%}%n@)%m:%{$fg_bold[blue]%}%c%{$fg_bold[magenta]%}${vcs_info_msg_0_}%{$fg[red]%}%_$(prompt_char)%{$reset_color%} '
-    ;;
-    main|viins)
-    PROMPT='%(!.%{$fg[red]%}.%{$fg[green]%}%n@)%m:%{$fg_bold[blue]%}%c%{$fg_bold[magenta]%}${vcs_info_msg_0_}%{$fg[cyan]%}%_$(prompt_char)%{$reset_color%} '
-    ;;
-  esac
-  zle reset-prompt
-}
-zle -N zle-line-init
-zle -N zle-keymap-select
+# PROMPT='%(!.%{$fg[red]%}.%{$fg[green]%}%n@)%m:%{$fg_bold[blue]%}%c%{$fg_bold[magenta]%}${vcs_info_msg_0_}%{$fg[cyan]%}%_$(prompt_char)%{$reset_color%} '
+PROMPT='%(!.%{$fg[red]%}.%{$fg[green]%}%n@)%m:%{$fg_bold[blue]%}%c%{$fg_bold[magenta]%}${vcs_info_msg_0_}%{$fg[cyan]%}%{$reset_color%} %% '
+# function zle-line-init zle-keymap-select {
+#   case $KEYMAP in
+#     vicmd)
+#     PROMPT='%(!.%{$fg[red]%}.%{$fg[green]%}%n@)%m:%{$fg_bold[blue]%}%c%{$fg_bold[magenta]%}${vcs_info_msg_0_}%{$fg[red]%} %% %{$reset_color%} '
+#     ;;
+#     main|viins)
+#     PROMPT='%(!.%{$fg[red]%}.%{$fg[green]%}%n@)%m:%{$fg_bold[blue]%}%c%{$fg_bold[magenta]%}${vcs_info_msg_0_}%{$fg[cyan]%} %% %{$reset_color%} '
+#     ;;
+#   esac
+#   zle reset-prompt
+# }
+# zle -N zle-line-init
+# zle -N zle-keymap-select
 
 autoload -U add-zsh-hook
 add-zsh-hook precmd  theme_precmd
